@@ -18,14 +18,14 @@ namespace PopisProcesa
             //ispisati popis procesa
             var popisProcesa = System.Diagnostics.Process.GetProcesses();
             var proces = popisProcesa[0];
-            for(int j=0;j<popisProcesa.Length;j++)
+            for (int j = 0; j < popisProcesa.Length; j++)
             {
-                for(int i=0;i<popisProcesa.Length;i++)
+                for (int i = 0; i < popisProcesa.Length; i++)
                 {
                     var p1 = popisProcesa[i];
                     var p2 = popisProcesa[j];
 
-                    if(popisProcesa[i].WorkingSet64>popisProcesa[j].WorkingSet64)
+                    if (popisProcesa[i].WorkingSet64 > popisProcesa[j].WorkingSet64)
                     {
                         var drzi = popisProcesa[i];
                         popisProcesa[i] = popisProcesa[j];
@@ -34,7 +34,7 @@ namespace PopisProcesa
                 }
             }
 
-            for (int i=0; i<10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 var p = popisProcesa[i];
                 Console.WriteLine("{0}-{1}", p.WorkingSet64, p.ProcessName);
